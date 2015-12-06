@@ -1,4 +1,4 @@
-package com.guilin.netty.hello2;
+package com.guilin.netty.linedecoder;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
