@@ -33,7 +33,7 @@ public class TimeClient {
             Bootstrap bootstrap = new Bootstrap();
             bootstrap.group(group)
                     .channel(NioSocketChannel.class)
-                    .option(ChannelOption.TCP_NODELAY, false)
+                    .option(ChannelOption.TCP_NODELAY, true)
                     .handler(new ChannelInitializer<SocketChannel>() {
                         @Override
                         protected void initChannel(SocketChannel ch) throws Exception {
@@ -41,10 +41,10 @@ public class TimeClient {
                         }
                     });
 
-            //发起异步连接操作
+            //连接服务器，同步等待成功
             ChannelFuture future = bootstrap.connect(host, port).sync();
 
-            //等待客户端链路关闭
+            //同步等待客户端通道关闭
             future.channel().closeFuture().sync();
         } finally {
             //优雅退出，释放NIO线程组
