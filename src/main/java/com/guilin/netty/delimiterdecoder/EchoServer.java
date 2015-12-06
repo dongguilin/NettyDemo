@@ -21,7 +21,7 @@ import io.netty.handler.logging.LoggingHandler;
 public class EchoServer {
 
     public static void main(String[] args) throws Exception {
-        int port = 8001;
+        int port = 8081;
         if (args != null && args.length > 0) {
             try {
                 port = Integer.valueOf(args[0]);

@@ -11,7 +11,7 @@ public class EchoClientHandler extends ChannelHandlerAdapter {
 
     private int counter;
 
-    private static final String ECHO_REQ = "Hi, Lilinfeng. Welcome to Netty.%_";
+    private static final String ECHO_REQ = "Hi, Lilinfeng. Welcome to Netty.$_";
 
     public EchoClientHandler() {
 

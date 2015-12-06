@@ -19,7 +19,7 @@ import io.netty.handler.codec.string.StringDecoder;
 public class EchoClient {
 
     public static void main(String[] args) throws Exception {
-        int port = 8001;
+        int port = 8081;
         if (args != null && args.length > 0) {
             try {
                 port = Integer.valueOf(args[0]);
@@ -45,7 +45,7 @@ public class EchoClient {
                             ch.pipeline().addLast(new EchoClientHandler());
                         }
                     });
-            ChannelFuture future = bootstrap.bind(host, port).sync();
+            ChannelFuture future = bootstrap.connect(host, port).sync();
             future.channel().closeFuture().sync();
         } finally {
             group.shutdownGracefully();
